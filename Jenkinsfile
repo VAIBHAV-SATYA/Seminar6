@@ -38,6 +38,17 @@ pipeline {
             steps {
                 echo "production :Deploy the code to the production environment: ${env.PRODUCTION_ENVIRONMENT}"
             }
+
+        }
+    }
+    post {
+        always {
+            emailext(
+                to: 'chandanhegde7@gmail.com',
+                subject: "Build ${currentBuild.fullDisplayName} - ${currentBuild.result}",
+                body: """<p>Build Details:</p>"""
+                    
+            )
         }
     }
 }
