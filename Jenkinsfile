@@ -46,5 +46,5 @@ pipeline {
                 subject: 'Jenkins Build| Test Subject',
                 to: 'chandanhegde7@gmail.com'
         }
-    }
+    }
 }
