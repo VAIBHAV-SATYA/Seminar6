@@ -41,10 +41,16 @@ pipeline {
         }
     }
     post{
-        always {
-            emailext body: 'Jenkins: Chandan | Test Success',
-                subject: 'Jenkins Build| Test Subject',
-                to: 'chandanhegde7@gmail.com'
+        success {
+            emailext body: 'Jenkins exp6: success',
+                subject: 'Jenkins success',
+                attachLog: true,
+                to: 'chandanhegde7299@gmail.com'
         }
+        failure {
+            emailext body: 'Jenkins exp6: failure',
+                subject: 'Jenkins failure',
+                attachLog: true,
+                to: 'chandanhegde7299@gmail.com
     }
 }
