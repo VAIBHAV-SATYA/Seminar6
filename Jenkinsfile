@@ -41,4 +41,11 @@ pipeline {
 
         }
     }
+    post{
+        always {
+            emailext body: 'Jenkins: Chandan | Test Success',
+                subject: 'Jenkins Build| Test Subject',
+                to: 'chandanhegde7299@gmail.com'
+        }
+    }
 }
