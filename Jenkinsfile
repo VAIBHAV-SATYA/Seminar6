@@ -51,6 +51,6 @@ pipeline {
             emailext body: 'Jenkins exp6: failure',
                 subject: 'Jenkins failure',
                 attachLog: true,
-                to: 'chandanhegde7299@gmail.com
+                to: 'chandanhegde7299@gmail.com'
     }
 }
