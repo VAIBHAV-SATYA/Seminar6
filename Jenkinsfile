@@ -41,14 +41,4 @@ pipeline {
 
         }
     }
-    post {
-        always {
-            emailext(
-                to: 's224504216@deakin.edu.au',
-                subject: "Build ${currentBuild.fullDisplayName} - ${currentBuild.result}",
-                body: """<p>Build Details:</p>"""
-                    
-            )
-        }
-    }
 }
