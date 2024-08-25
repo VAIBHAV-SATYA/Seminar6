@@ -10,33 +10,38 @@ pipeline {
             steps {
                 echo "Build :Fetch the source code from the directory path specified by the environment variable: ${env.DIRECTORY_PATH}"
                 echo "Build :Compile the code and generate any necessary artifacts"
+                echo "Building using Maven"
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                echo "Test :Running unit tests"
-                echo "Test :Running integration tests"
+                echo "Test :Running unit tests in JUNIT"
+                echo "Test :Running integration tests in MOCKITO"
             }
         }
-        stage('Code Quality Check') {
+        stage('Code Analysis') {
             steps {
-                echo "code quality :Check the quality of the code"
+                echo "code quality :Check the quality of the code in SONARQUBE"
             }
         }
-        stage('Deploy') {
+        stage('Security Scan') {
             steps {
-                echo "Deploy :Deploy the application to the testing environment specified by the environment variable: ${env.TESTING_ENVIRONMENT}"
+                echo "conducting the security scan in ZAP"
             }
         }
-        stage('Approval') {
+        stage('Deploy to Staging') {
             steps {
-                echo "approval :Waiting for manual approval"
-                sleep 10 // Sleep for 10 seconds to simulate manual approval
+                echo "deploy the application to AWS EC2 instance"
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                echo "running the integration tests on maven to ensure the aplication functions as expected"
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo "production :Deploy the code to the production environment: ${env.PRODUCTION_ENVIRONMENT}"
+                echo " deploy the application to AWWS EC2 instance"
             }
         }
     }
