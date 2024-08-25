@@ -52,5 +52,6 @@ pipeline {
                 subject: 'Jenkins failure',
                 attachLog: true,
                 to: 'chandanhegde7299@gmail.com'
+        }
     }
 }
