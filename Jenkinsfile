@@ -38,14 +38,13 @@ pipeline {
             steps {
                 echo "production :Deploy the code to the production environment: ${env.PRODUCTION_ENVIRONMENT}"
             }
-
         }
     }
     post{
         always {
             emailext body: 'Jenkins: Chandan | Test Success',
                 subject: 'Jenkins Build| Test Subject',
-                to: 'chandanhegde7299@gmail.com'
+                to: 'chandanhegde7@gmail.com'
         }
     }
 }
